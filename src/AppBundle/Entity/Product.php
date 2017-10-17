@@ -37,7 +37,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products", cascade={"persist"})
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
     private $category;
 
