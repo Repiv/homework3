@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Product ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td colspan="2">
+                        <table>
+                            {% for product in category.products %}
+                                <tr>
+                                    <td>{{ product.id }}</td>
+                                    <td>
+                                        <a href="{{ path('delete', {id: product.id}) }}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('new') }}">Create new</a>
+{% endblock %}
